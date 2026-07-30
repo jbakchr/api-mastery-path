@@ -216,6 +216,20 @@ Framework-Specific Coding
 
 This distinction drives the entire project.
 
+After completing six capability/implementation pairs, this separation has proven to be the most valuable design decision in the project.
+
+The learning experience becomes significantly stronger when learners first understand:
+
+```text
+Why a capability exists
+```
+
+before learning:
+
+```text
+How a framework implements it
+```
+
 ---
 
 # 📄 Capability Pages
@@ -379,9 +393,9 @@ Exercises focus on:
 
 ---
 
-# ⚙️ Current Project Status
+## ⚙️ Current Project Status
 
-## Infrastructure
+### Infrastructure
 
 ✅ GitHub Pages project created
 
@@ -403,13 +417,57 @@ Exercises focus on:
 
 ✅ FastAPI established as the first implementation track
 
+✅ Capability-first learning model validated
+
+✅ Framework implementation model validated
+
 ---
 
-## Completed Capabilities
+### Completed Capabilities
 
-### Routing
+#### Routing
 
-✅ Capability page drafted
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+#### Validation
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+#### Error Handling
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+#### Documentation
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+#### Authentication
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+#### Authorization
+
+✅ Capability page completed
 
 ✅ Exercises created
 
@@ -417,31 +475,51 @@ Exercises focus on:
 
 ---
 
-### Validation
+### Completed FastAPI Implementations
 
-✅ Capability page drafted
+#### FastAPI Routing
 
-✅ Exercises created
-
-✅ Framework links established
-
----
-
-## Completed FastAPI Implementations
-
-### FastAPI Routing
-
-✅ Implementation page drafted
+✅ Implementation page completed
 
 ✅ Coding exercises created
 
 ✅ Common pitfalls added
 
----
+#### FastAPI Validation
 
-### FastAPI Validation
+✅ Implementation page completed
 
-✅ Implementation page drafted
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+#### FastAPI Error Handling
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+#### FastAPI Documentation
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+#### FastAPI Authentication
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+#### FastAPI Authorization
+
+✅ Implementation page completed
 
 ✅ Coding exercises created
 
@@ -603,31 +681,77 @@ Not:
 
 ---
 
-# 🧭 Current Direction
+### 7. Capability-First Learning Works
 
-The capability sequence should currently be:
+After creating capability and implementation pages for:
+
+- Routing
+- Validation
+- Error Handling
+- Documentation
+- Authentication
+- Authorization
+
+the distinction between capability pages and implementation pages has become even more valuable.
+
+Capability pages teach:
 
 ```text
-Routing
-    ↓
-Validation
-    ↓
-Error Handling
-    ↓
-Documentation
-    ↓
-Authentication
-    ↓
-Authorization
-    ↓
-Filtering
-    ↓
-Pagination
-    ↓
-Versioning
-    ↓
-Testing
+Why the solution exists
 ```
+
+Implementation pages teach:
+
+```text
+How a framework provides the solution
+```
+
+The stronger this separation remains, the more framework-independent the learning experience becomes.
+
+This insight should continue to guide future content.
+
+Capability pages should remain focused on:
+
+- problems
+- reasoning
+- design
+- tradeoffs
+- engineering thinking
+
+Implementation pages should remain focused on:
+
+- framework tools
+- framework patterns
+- coding exercises
+- reusable implementations
+
+The success of the project increasingly depends on maintaining this distinction.
+
+---
+
+## 🧭 Current Direction
+
+The capability sequence is currently:
+
+✅ Routing
+
+✅ Validation
+
+✅ Error Handling
+
+✅ Documentation
+
+✅ Authentication
+
+✅ Authorization
+
+🎯 Filtering
+
+⬜ Pagination
+
+⬜ Versioning
+
+⬜ Testing
 
 Each capability should have:
 
@@ -639,20 +763,48 @@ FastAPI Implementation Page
 
 before moving on.
 
+This approach has proven effective for maintaining a clear distinction between API Engineering thinking and framework-specific implementation skills.
+
 ---
 
-# 🎯 Current Priority
+## 🎯 Current Priority
+
+Current completed sequence:
+
+✅ Routing
+
+✅ Validation
+
+✅ Error Handling
+
+✅ Documentation
+
+✅ Authentication
+
+✅ Authorization
 
 Next capability:
 
 ```text
-Error Handling
+Filtering
 ```
 
 Next implementation:
 
 ```text
-FastAPI Error Handling
+FastAPI Filtering
+```
+
+Remaining Phase 2 sequence:
+
+```text
+Filtering
+    ↓
+Pagination
+    ↓
+Versioning
+    ↓
+Testing
 ```
 
 Do not rush into:
@@ -665,6 +817,8 @@ Do not rush into:
 - Production APIs
 
 First complete the core API Engineering capability sequence.
+
+Continue validating the learning model by completing each capability together with its FastAPI implementation page.
 
 ---
 
@@ -742,6 +896,7 @@ Help me:
 - Improve scenarios
 - Improve learning progression
 - Maintain consistency
+- Ensure capability and implementation pages remain clearly separated
 - Expand content without overengineering
 - Keep the focus on API Engineering
 
