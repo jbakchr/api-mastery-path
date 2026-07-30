@@ -39,7 +39,8 @@ Success is measured by questions such as:
 - Do I understand why validation exists?
 - Can I design a clean authentication flow?
 - Can I implement pagination regardless of framework?
-- Can I design an API consumers would enjoy using?
+- Can I design APIs people enjoy using?
+- Can I reason about API systems professionally?
 - Am I becoming a more capable API engineer?
 
 ---
@@ -114,20 +115,20 @@ Examples:
 
 - Routing
 - Validation
+- Error Handling
+- Documentation
 - Authentication
 - Authorization
-- Pagination
 - Filtering
+- Pagination
 - Versioning
-- Documentation
 - Testing
-- Error Handling
 
 Goal:
 
 👉 Learn how APIs solve problems.
 
-Capabilities are taught independently of any framework.
+Capabilities are framework-independent.
 
 ---
 
@@ -137,11 +138,11 @@ Focus:
 
 How specific frameworks implement API capabilities.
 
-Initially:
+Current framework:
 
 - FastAPI
 
-Potential future implementations:
+Potential future frameworks:
 
 - Express
 - ASP.NET
@@ -199,160 +200,182 @@ Goal:
 
 ---
 
-# 🧪 Capability Philosophy
+# 🧪 The Most Important Project Insight
 
-Capabilities should begin with problems.
-
-NOT:
+The most important discovery in this project is:
 
 ```text
-Create a Pydantic model.
+Capability Pages
+        ↓
+API Engineering Thinking
+
+Implementation Pages
+        ↓
+Framework-Specific Coding
 ```
 
-BUT:
-
-```text
-A user submits invalid registration data.
-
-How can you prevent bad data from entering your system?
-```
-
-The goal is to make learners think:
-
-👉 "I've encountered that before."
-
-or
-
-👉 "That sounds useful."
-
-rather than:
-
-👉 "Here's another framework tutorial."
-
-Every capability should teach:
-
-```text
-Problem
-    ↓
-Capability
-    ↓
-Implementation
-```
-
-rather than:
-
-```text
-Framework
-    ↓
-Syntax
-    ↓
-Tutorial
-```
+This distinction drives the entire project.
 
 ---
 
-# 📄 Capability Page Template
+# 📄 Capability Pages
 
-Each capability page follows the same progression:
+Capability pages teach:
+
+```text
+API Engineering Thinking
+```
+
+Examples:
+
+- Routing
+- Validation
+- Authentication
+- Pagination
+
+A capability page answers:
+
+```text
+Why does this capability exist?
+
+What problem does it solve?
+
+When should it be used?
+
+What makes a good solution?
+```
+
+Frameworks are intentionally not the focus.
+
+---
+
+## Capability Learning Progression
 
 ```text
 Discover
     ↓
+Understand
+
 Apply
     ↓
+Design
+
 Compose
     ↓
+Combine
+
 Automate
+    ↓
+Generalize
 ```
 
-## Discover
-
-Learn the capability.
-
-Understand why it exists.
-
-## Apply
-
-Use the capability in realistic scenarios.
-
-## Compose
-
-Combine the capability with other API concepts.
-
-## Automate
-
-Create reusable patterns and solutions.
-
-The goal is to gradually move from understanding a capability to naturally reaching for it when designing APIs.
+The learner should think like an API engineer.
 
 ---
 
-# 🧱 Capability Structure
+## Capability Exercise Structure
 
-Example:
-
-```text
-Validation
-│
-├── The Problem
-├── Common Validation Rules
-├── Request Validation
-├── Response Validation
-├── Discover
-├── Apply
-├── Compose
-├── Automate
-└── Why This Matters
-```
-
-At the bottom of each capability page:
+Every capability exercise follows:
 
 ```text
-Implement This Capability Using
-
-✅ FastAPI
-
-⬜ Express
-
-⬜ ASP.NET
-
-⬜ Spring Boot
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
 ```
 
-The capability comes first.
+Exercises focus on:
 
-Framework implementations come second.
+- reasoning
+- design
+- tradeoffs
+- engineering thinking
+
+not framework syntax.
 
 ---
 
-# 🧱 Implementation Structure
+# 📄 Implementation Pages
 
-Framework implementations live separately.
-
-Example:
+Implementation pages teach:
 
 ```text
-Implementations
-│
-└── FastAPI
-    │
-    ├── Routing
-    ├── Validation
-    ├── Authentication
-    ├── Authorization
-    ├── Pagination
-    ├── Filtering
-    ├── Documentation
-    ├── Testing
-    ├── Databases
-    ├── Dependency Injection
-    ├── Background Tasks
-    └── Deployment
+Framework Implementation Skills
 ```
 
-Future frameworks should fit into the same structure.
+Examples:
 
-The site architecture should not need to change when additional implementation tracks are added.
+- FastAPI Routing
+- FastAPI Validation
+- FastAPI Authentication
+
+Implementation pages answer:
+
+```text
+How does this framework implement the capability?
+
+What tools does it provide?
+
+How do I use them effectively?
+```
+
+---
+
+## Implementation Learning Progression
+
+```text
+Discover
+    ↓
+Read Code
+
+Apply
+    ↓
+Modify Code
+
+Compose
+    ↓
+Write Code
+
+Automate
+    ↓
+Create Reusable Patterns
+```
+
+The learner should become comfortable implementing capabilities using FastAPI.
+
+---
+
+## Implementation Exercise Structure
+
+Every implementation exercise follows:
+
+```text
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
+```
+
+Exercises focus on:
+
+- reading code
+- modifying code
+- writing code
+- creating reusable patterns
 
 ---
 
@@ -370,37 +393,59 @@ The site architecture should not need to change when additional implementation t
 
 ✅ PROJECT_CONTEXT.md created
 
-✅ Fundamentals section created
+✅ Capability page template created
 
-✅ Capabilities section created
+✅ Implementation page template created
 
-✅ Implementations section created
+✅ Exercise philosophy established
 
-✅ Projects section created
+✅ Progressive exercise structure established
 
-✅ Production APIs section created
-
-✅ FastAPI established as first implementation track
+✅ FastAPI established as the first implementation track
 
 ---
 
-## Validation
+## Completed Capabilities
 
-Current capability under development:
+### Routing
 
-```text
-Validation
-```
+✅ Capability page drafted
 
-Validation will be used to validate the overall learning model for:
+✅ Exercises created
 
-```text
-Capability
-    ↓
-Implementation
-```
+✅ Framework links established
 
-before additional capabilities are built.
+---
+
+### Validation
+
+✅ Capability page drafted
+
+✅ Exercises created
+
+✅ Framework links established
+
+---
+
+## Completed FastAPI Implementations
+
+### FastAPI Routing
+
+✅ Implementation page drafted
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+---
+
+### FastAPI Validation
+
+✅ Implementation page drafted
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
 
 ---
 
@@ -424,6 +469,18 @@ before:
 BaseModel
 ```
 
+Teach:
+
+```text
+Route requests to functionality
+```
+
+before:
+
+```python
+@app.get()
+```
+
 ---
 
 ## 2. Problems > Tutorials
@@ -437,7 +494,7 @@ I've encountered that before.
 rather than:
 
 ```text
-Here's another tutorial.
+Here's a tutorial.
 ```
 
 ---
@@ -447,24 +504,48 @@ Here's another tutorial.
 The goal is not:
 
 ```text
-FastAPI mastery
+FastAPI Mastery
 ```
 
 The goal is:
 
 ```text
-API Engineering mastery
+API Engineering Mastery
 ```
 
 FastAPI is currently the implementation vehicle.
 
-Future frameworks may be added later.
+Additional frameworks may be added later.
 
 ---
 
-## 4. Consistency Matters
+## 4. Capability Before Implementation
 
-Learners should never need to learn a new page structure.
+Always teach:
+
+```text
+Problem
+    ↓
+Capability
+    ↓
+Implementation
+```
+
+Never:
+
+```text
+Framework
+    ↓
+Syntax
+    ↓
+Tutorial
+```
+
+---
+
+## 5. Consistency Matters
+
+Learners should never have to learn a new structure.
 
 Every capability page should follow:
 
@@ -478,31 +559,43 @@ Compose
 Automate
 ```
 
-Consistency is more important than novelty.
+Every implementation page should follow:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+Only the type of learning changes.
 
 ---
 
-## 5. Content > Features
+## 6. Content > Features
 
 The value comes from:
 
-✅ Capabilities
-
 ✅ Learning progression
 
-✅ Real-world problems
+✅ Problem solving
+
+✅ Capability building
 
 ✅ Engineering understanding
 
-✅ Projects
+✅ Practical exercises
 
-NOT:
+Not:
 
 ❌ Styling
 
-❌ Fancy UI
-
 ❌ Animations
+
+❌ Fancy UI
 
 ❌ Gamification
 
@@ -512,22 +605,54 @@ NOT:
 
 # 🧭 Current Direction
 
-Current priority:
+The capability sequence should currently be:
 
 ```text
-Capabilities
+Routing
     ↓
 Validation
+    ↓
+Error Handling
+    ↓
+Documentation
+    ↓
+Authentication
+    ↓
+Authorization
+    ↓
+Filtering
+    ↓
+Pagination
+    ↓
+Versioning
+    ↓
+Testing
 ```
 
-and
+Each capability should have:
 
 ```text
-Implementations
+Capability Page
     ↓
-FastAPI
-    ↓
-Validation
+FastAPI Implementation Page
+```
+
+before moving on.
+
+---
+
+# 🎯 Current Priority
+
+Next capability:
+
+```text
+Error Handling
+```
+
+Next implementation:
+
+```text
+FastAPI Error Handling
 ```
 
 Do not rush into:
@@ -535,10 +660,11 @@ Do not rush into:
 - Express
 - ASP.NET
 - Spring Boot
-- Additional implementation tracks
-- Production API topics
+- Advanced FastAPI topics
+- Projects
+- Production APIs
 
-First validate the learning model.
+First complete the core API Engineering capability sequence.
 
 ---
 
@@ -546,7 +672,7 @@ First validate the learning model.
 
 At this stage:
 
-- Multiple frameworks
+- Multiple framework tracks
 - Fancy UI
 - Gamification
 - User accounts
@@ -555,13 +681,13 @@ At this stage:
 
 Focus remains:
 
-👉 API fundamentals
+👉 API Engineering
 
-👉 API capabilities
+👉 Practical capabilities
 
-👉 Framework implementations
+👉 Framework implementation skills
 
-👉 Real-world API engineering
+👉 Progressive learning
 
 ---
 
@@ -593,7 +719,7 @@ through:
 
 # 🧠 Why This Matters (Personally)
 
-This project exists because I often encounter API concepts that I understand at a high level but do not yet feel fully comfortable implementing, designing, or discussing professionally.
+This project exists because I often encounter API concepts that I understand at a high level but do not yet feel fully comfortable implementing, designing, discussing, or teaching professionally.
 
 The goal is to create a resource that future me can repeatedly return to in order to strengthen API Engineering knowledge and develop deeper mastery over time.
 
@@ -610,10 +736,11 @@ It is:
 
 Help me:
 
-- Create outstanding capability pages
-- Improve scenarios and exercises
-- Design learning progressions
-- Design implementation tracks
+- Create capability pages
+- Create FastAPI implementation pages
+- Improve exercises
+- Improve scenarios
+- Improve learning progression
 - Maintain consistency
 - Expand content without overengineering
 - Keep the focus on API Engineering
