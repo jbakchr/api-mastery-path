@@ -412,217 +412,229 @@ def create_user(user: UserCreate):
         "id": 1,
         **user.model_dump()
     }
-``**
-FastAPI automatically documents:**- Request fields
-- Response field**- Endpoint purpose
-- Endpoint gro**ing
+```
 
-without requiring**eparate documentation files**
+FastAPI automatically documents:
+
+- Request fields
+- Response fields
+- Endpoint purpose
+- Endpoint grouping
+
+without requiring separate documentation files.
+
 ### Why This Exercise Exists
 
-Re**-world APIs require multiple docu**ntation features working together**
-Developers**hould understand how**astAPI builds rich documentation **om code.
+Real-world APIs require multiple documentation features working together.
+
+Developers should understand how FastAPI builds rich documentation from code.
 
 ---
 
 ## Automate
 
-### S**nario
+### Scenario
 
-Your organization maintain**ten FastAPI services.
+Your organization maintains ten FastAPI services.
 
-Teams curr**tly document APIs inconsistently.**Some provide titles.
+Teams currently document APIs inconsistently.
 
-Some provid**tags.
+Some provide titles.
 
-Some provide schema descri**ions.
+Some provide tags.
 
-Consumers complain that ea** API feels different.
+Some provide schema descriptions.
 
-### Object**e
+Consumers complain that each API feels different.
 
-Create reusable FastAPI docume**ation patterns.
+### Objective
 
-### Success Crit**ia
+Create reusable FastAPI documentation patterns.
 
-The learner should be able to**
-- Identify documentation inconsi**encies
-- Create reusable standard**- Improve API discoverability
-- E**ablish documentation conventions
-**## Hints
+### Success Criteria
+
+The learner should be able to:
+
+- Identify documentation inconsistencies
+- Create reusable standards
+- Improve API discoverability
+- Establish documentation conventions
+
+### Hints
 
 ??? tip "Small Hint"
 
- ** Look for common metadata across **Is.
+    Look for common metadata across APIs.
 
 ??? tip "Stronger Hint"
 
-   **tandards are easier than reinvent**g documentation every time.
+    Standards are easier than reinventing documentation every time.
 
-??? **p "Almost There"
+??? tip "Almost There"
 
-    Consistent **tadata and tagging greatly improv**usability.
+    Consistent metadata and tagging greatly improve usability.
 
 ### Solution
 
-??? suc**ss "Solution"
+??? success "Solution"
 
-An organization mi**t require:
+An organization might require:
 
 ```python
-app = FastA**(
+app = FastAPI(
     title="API Name",
-    descr**tion="API Description",
-    versi**="1.0.0"
+    description="API Description",
+    version="1.0.0"
 )
 ```
 
-and require every**ndpoint to provide:
+and require every endpoint to provide:
 
 ```python
-ta**=[...]
+tags=[...]
 summary="..."
 ```
 
-along w**h request and response models.
+along with request and response models.
 
-T**se conventions help ensure all AP** provide a similar documentation **perience.
+These conventions help ensure all APIs provide a similar documentation experience.
 
-### Why This Exercise **ists
+### Why This Exercise Exists
 
-Professional API engineers **ten define standards that improve**onsistency across services and te**s.
+Professional API engineers often define standards that improve consistency across services and teams.
 
-Documentation should scale ju** like code.
+Documentation should scale just like code.
 
 ---
 
-## Common Pitfa**s
+## Common Pitfalls
 
-### Relying Solely on Route Na**s
+### Relying Solely on Route Names
 
 #### Why It Happens
 
-Developer**assume endpoint paths explain eve**thing.
+Developers assume endpoint paths explain everything.
 
 Example:
 
 ```python
-@app.**st("/users")
+@app.post("/users")
 ```
 
-#### Better App**ach
+#### Better Approach
 
 Add metadata.
 
 ```python
-sum**ry="Create user"
-description="Cre**e a new user account"
+summary="Create user"
+description="Create a new user account"
 ```
 
-Consum**s should not need to guess endpoi** behavior.
+Consumers should not need to guess endpoint behavior.
 
 ---
 
-### Omitting Req**st Models
+### Omitting Request Models
 
 #### Why It Happens
 
-D**elopers use raw dictionaries inst**d of typed models.
+Developers use raw dictionaries instead of typed models.
 
-#### Better A**roach
+#### Better Approach
 
 Use Pydantic models.
 
-```p**hon
+```python
 class UserCreate(BaseModel):
-**  name: str
+    name: str
     email: str
 ```
 
-F**tAPI can then document the reques**schema automatically.
+FastAPI can then document the request schema automatically.
 
 ---
 
-### O**tting Response Models
+### Omitting Response Models
 
-#### Why I**Happens
+#### Why It Happens
 
-Developers focus only on**mplementation.
+Developers focus only on implementation.
 
-#### Better Appro**h
+#### Better Approach
 
 Provide response models.
 
-```p**hon
+```python
 response_model=User
 ```
 
-This**ocuments response expectations cl**rly.
+This documents response expectations clearly.
 
 ---
 
 ### Ignoring Tags
 
-###**Why It Happens
+#### Why It Happens
 
-Small APIs initia**y seem easy to navigate.
+Small APIs initially seem easy to navigate.
 
-#### Be**er Approach
+#### Better Approach
 
-Use tags consistentl**
+Use tags consistently.
 
 ```python
 tags=["Users"]
 ```
 
-O**anization becomes increasingly im**rtant as APIs grow.
+Organization becomes increasingly important as APIs grow.
 
 ---
 
-### Tre**ing Documentation as an Afterthou**t
+### Treating Documentation as an Afterthought
 
 #### Why It Happens
 
-Developer**focus exclusively on endpoint fun**ionality.
+Developers focus exclusively on endpoint functionality.
 
 #### Better Approach
 
-**ew documentation as part of API d**ign.
+View documentation as part of API design.
 
-A well-documented API is ea**er to adopt, maintain, and evolve**
+A well-documented API is easier to adopt, maintain, and evolve.
+
 ---
 
 ## Why This Matters
 
-FastAP**provides powerful tooling that ma**s API documentation a natural par**of API development.
+FastAPI provides powerful tooling that makes API documentation a natural part of API development.
 
 Using:
 
-- Op**API
+- OpenAPI
 - Swagger UI
 - ReDoc
-- Route **tadata
+- Route metadata
 - Request models
-- Respons**models
+- Response models
 - Tags
 
-developers can cre**e rich and accurate documentation**irectly from their code.
+developers can create rich and accurate documentation directly from their code.
 
-Because**ocumentation is generated from th**API's implementation, it is easie**to keep documentation aligned wit**reality and reduce the risk of ou**ated information.
+Because documentation is generated from the API's implementation, it is easier to keep documentation aligned with reality and reduce the risk of outdated information.
 
-FastAPI also e**ourages developers to think about**PI contracts while building endpo**ts rather than treating documenta**on as a separate task that happen**later.
+FastAPI also encourages developers to think about API contracts while building endpoints rather than treating documentation as a separate task that happens later.
 
-In professional environme**s, documentation is often the pri**ry way consumers discover and lea** an API.
+In professional environments, documentation is often the primary way consumers discover and learn an API.
 
-Good documentation impr**es:
+Good documentation improves:
 
 - Discoverability
-- Develope**experience
+- Developer experience
 - Integration speed
-- **llaboration
+- Collaboration
 - Maintainability
 
-Un**rstanding FastAPI's documentation**eatures helps you build APIs that**re easier to learn, easier to use, and easier to maintain over time.
+Understanding FastAPI's documentation features helps you build APIs that are easier to learn, easier to use, and easier to maintain over time.
 
 ---
 
