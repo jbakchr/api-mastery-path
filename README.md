@@ -590,6 +590,18 @@ API Mastery Path aims to become a practical roadmap for API Engineering.
 
 The objective is not simply to learn a framework.
 
+The objective is to develop API Engineering thinking and then learn how frameworks implement those ideas.
+
+Capabilities teach:
+
+    Why a solution exists.
+
+Implementations teach:
+
+    How a framework provides that solution.
+
+The project is designed to repeatedly reinforce both perspectives until API Engineering concepts become natural tools for solving real-world problems.
+
 The objective is to repeatedly practice API concepts, capabilities, implementations, and projects until they become natural tools for solving real-world problems.
 
 The ultimate goal is to help developers move from:
