@@ -216,7 +216,7 @@ Framework-Specific Coding
 
 This distinction drives the entire project.
 
-After completing six capability/implementation pairs, this separation has proven to be the most valuable design decision in the project.
+After completing ten capability/implementation pairs, this separation has proven to be the most valuable design decision in the project.
 
 The learning experience becomes significantly stronger when learners first understand:
 
@@ -423,17 +423,9 @@ Exercises focus on:
 
 ---
 
-### Completed Capabilities
+#### Completed Capabilities
 
-#### Routing
-
-✅ Capability page completed
-
-✅ Exercises created
-
-✅ Framework links established
-
-#### Validation
+##### Routing
 
 ✅ Capability page completed
 
@@ -441,7 +433,7 @@ Exercises focus on:
 
 ✅ Framework links established
 
-#### Error Handling
+##### Validation
 
 ✅ Capability page completed
 
@@ -449,7 +441,7 @@ Exercises focus on:
 
 ✅ Framework links established
 
-#### Documentation
+##### Error Handling
 
 ✅ Capability page completed
 
@@ -457,7 +449,7 @@ Exercises focus on:
 
 ✅ Framework links established
 
-#### Authentication
+##### Documentation
 
 ✅ Capability page completed
 
@@ -465,7 +457,47 @@ Exercises focus on:
 
 ✅ Framework links established
 
-#### Authorization
+##### Authentication
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+##### Authorization
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+##### Filtering
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+##### Pagination
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+##### Versioning
+
+✅ Capability page completed
+
+✅ Exercises created
+
+✅ Framework links established
+
+##### Testing
 
 ✅ Capability page completed
 
@@ -475,17 +507,9 @@ Exercises focus on:
 
 ---
 
-### Completed FastAPI Implementations
+#### Completed FastAPI Implementations
 
-#### FastAPI Routing
-
-✅ Implementation page completed
-
-✅ Coding exercises created
-
-✅ Common pitfalls added
-
-#### FastAPI Validation
+##### FastAPI Routing
 
 ✅ Implementation page completed
 
@@ -493,7 +517,7 @@ Exercises focus on:
 
 ✅ Common pitfalls added
 
-#### FastAPI Error Handling
+##### FastAPI Validation
 
 ✅ Implementation page completed
 
@@ -501,7 +525,7 @@ Exercises focus on:
 
 ✅ Common pitfalls added
 
-#### FastAPI Documentation
+##### FastAPI Error Handling
 
 ✅ Implementation page completed
 
@@ -509,7 +533,7 @@ Exercises focus on:
 
 ✅ Common pitfalls added
 
-#### FastAPI Authentication
+##### FastAPI Documentation
 
 ✅ Implementation page completed
 
@@ -517,13 +541,54 @@ Exercises focus on:
 
 ✅ Common pitfalls added
 
-#### FastAPI Authorization
+##### FastAPI Authentication
 
 ✅ Implementation page completed
 
 ✅ Coding exercises created
 
 ✅ Common pitfalls added
+
+##### FastAPI Authorization
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+##### FastAPI Filtering
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+##### FastAPI Pagination
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+##### FastAPI Versioning
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+
+##### FastAPI Testing
+
+✅ Implementation page completed
+
+✅ Coding exercises created
+
+✅ Common pitfalls added
+`
 
 ---
 
@@ -729,47 +794,57 @@ The success of the project increasingly depends on maintaining this distinction.
 
 ---
 
-## 🧭 Current Direction
+### 8. API Engineering Is About Decisions
 
-The capability sequence is currently:
+One of the strongest discoveries from the completed capability track is that capabilities are really teaching engineering decisions.
 
-✅ Routing
+Examples:
 
-✅ Validation
+Routing
+↓
+How should requests be organized?
 
-✅ Error Handling
+Validation
+↓
+What input can be trusted?
 
-✅ Documentation
+Authentication
+↓
+How can identities be verified?
 
-✅ Authentication
+Authorization
+↓
+Who should be allowed access?
 
-✅ Authorization
+Filtering
+↓
+Which data should be discoverable?
 
-🎯 Filtering
+Pagination
+↓
+How should large datasets be exposed?
 
-⬜ Pagination
+Versioning
+↓
+How can APIs evolve safely?
 
-⬜ Versioning
+Testing
+↓
+How can behavior be verified confidently?
 
-⬜ Testing
+This perspective has become increasingly important as the project has evolved.
 
-Each capability should have:
+The goal is not simply learning API features.
 
-```text
-Capability Page
-    ↓
-FastAPI Implementation Page
-```
-
-before moving on.
-
-This approach has proven effective for maintaining a clear distinction between API Engineering thinking and framework-specific implementation skills.
+The goal is learning how API engineers think.
 
 ---
 
-## 🎯 Current Priority
+## 🧭 Current Direction
 
-Current completed sequence:
+The complete Core API Engineering capability track has now been completed.
+
+Completed sequence:
 
 ✅ Routing
 
@@ -783,21 +858,31 @@ Current completed sequence:
 
 ✅ Authorization
 
-Next capability:
+✅ Filtering
+
+✅ Pagination
+
+✅ Versioning
+
+✅ Testing
+
+Each capability now has a matching FastAPI implementation page.
+
+Completed learning path:
 
 ```text
-Filtering
-```
-
-Next implementation:
-
-```text
-FastAPI Filtering
-```
-
-Remaining Phase 2 sequence:
-
-```text
+Routing
+    ↓
+Validation
+    ↓
+Error Handling
+    ↓
+Documentation
+    ↓
+Authentication
+    ↓
+Authorization
+    ↓
 Filtering
     ↓
 Pagination
@@ -807,18 +892,152 @@ Versioning
 Testing
 ```
 
-Do not rush into:
+This milestone successfully validated:
 
-- Express
-- ASP.NET
-- Spring Boot
-- Advanced FastAPI topics
-- Projects
-- Production APIs
+✅ Capability-first learning
 
-First complete the core API Engineering capability sequence.
+✅ Framework implementation pairing
 
-Continue validating the learning model by completing each capability together with its FastAPI implementation page.
+✅ Progressive exercises
+
+✅ Consistent page structures
+
+✅ API Engineering focused learning
+
+The project's core educational model should now be considered proven.
+
+Future additions should build upon this foundation rather than revisiting it.
+
+---
+
+## 🎯 Current Priority
+
+The first major milestone of API Mastery Path has now been completed.
+
+Core API Engineering Capabilities:
+
+✅ Complete
+
+FastAPI Implementation Track:
+
+✅ Complete
+
+Current strategic focus:
+
+👉 Determine the best next phase for project growth.
+
+Potential next phases include:
+
+### Option 1 - API Fundamentals
+
+Deepen understanding of:
+
+- HTTP
+- REST
+- JSON
+- Content Types
+- Cookies vs Tokens
+- OpenAPI
+
+Goal:
+
+```text
+Learn how APIs work
+```
+
+### Option 2 - API Projects
+
+Apply capabilities through realistic systems.
+
+Examples:
+
+- Notes API
+- Task API
+- URL Shortener
+- Knowledge Base API
+
+Goal:
+
+```text
+Learn how capabilities work together
+```
+
+### Option 3 - Production APIs
+
+Focus on operational API engineering.
+
+Examples:
+
+- Logging
+- Monitoring
+- Observability
+- Deployment
+- Security
+
+Goal:
+
+```text
+Learn how APIs survive in production
+```
+
+Current recommendation:
+
+Begin with API Fundamentals.
+
+This is most closely aligned with the project's original learning progression:
+
+```text
+Fundamentals
+    ↓
+Capabilities
+    ↓
+Implementations
+    ↓
+Projects
+    ↓
+Production Systems
+```
+
+---
+
+## 🏆 Major Milestone Achieved
+
+API Mastery Path has now completed its first major milestone.
+
+Completed:
+
+- 10 Capability Pages
+- 10 FastAPI Implementation Pages
+- Discover Exercises
+- Apply Exercises
+- Compose Exercises
+- Automate Exercises
+
+This work validated the project's central hypothesis:
+
+```text
+Capability-First Learning
+        ↓
+Produces Better Understanding
+Than
+Framework-First Learning
+```
+
+The distinction between:
+
+```text
+Why a capability exists
+```
+
+and
+
+```text
+How a framework implements it
+```
+
+has become the defining characteristic of the project.
+
+Future development should preserve and strengthen this distinction.
 
 ---
 
