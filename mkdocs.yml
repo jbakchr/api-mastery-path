@@ -1,0 +1,75 @@
+site_name: API Mastery Path
+site_description: Learn API Engineering progressively through fundamentals, capabilities, implementations, projects, and production systems.
+site_url: https://jbakchr.github.io/api-mastery-path/
+
+repo_name: jbakchr/api-mastery-path
+repo_url: https://github.com/jbakchr/api-mastery-path
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+
+  - Fundamentals:
+      - HTTP: fundamentals/http.md
+      - REST: fundamentals/rest.md
+      - JSON: fundamentals/json.md
+      - Content Types: fundamentals/content-types.md
+      - Cookies vs Tokens: fundamentals/cookies-vs-tokens.md
+      - OpenAPI: fundamentals/openapi.md
+
+  - Capabilities:
+      - Routing: capabilities/routing.md
+      - Validation: capabilities/validation.md
+      - Error Handling: capabilities/error-handling.md
+      - Documentation: capabilities/documentation.md
+      - Authentication: capabilities/authentication.md
+      - Authorization: capabilities/authorization.md
+      - Filtering: capabilities/filtering.md
+      - Pagination: capabilities/pagination.md
+      - Versioning: capabilities/versioning.md
+      - Testing: capabilities/testing.md
+
+  - FastAPI Implementations:
+      - Routing: implementations/fastapi-routing.md
+      - Validation: implementations/fastapi-validation.md
+      - Error Handling: implementations/fastapi-error-handling.md
+      - Documentation: implementations/fastapi-documentation.md
+      - Authentication: implementations/fastapi-authentication.md
+      - Authorization: implementations/fastapi-authorization.md
+      - Filtering: implementations/fastapi-filtering.md
+      - Pagination: implementations/fastapi-pagination.md
+      - Versioning: implementations/fastapi-versioning.md
+      - Testing: implementations/fastapi-testing.md
+
+  - Projects:
+      - Notes API: projects/notes-api.md
+      - Task API: projects/task-api.md
+      - URL Shortener: projects/url-shortener.md
+      - Knowledge Base API: projects/knowledge-base-api.md
+
+  - Production APIs:
+      - Logging: production/logging.md
+      - Monitoring: production/monitoring.md
+      - Observability: production/observability.md
+      - Security: production/security.md
+      - Deployment: production/deployment.md
+      - Containers: production/containers.md
+      - Reverse Proxies: production/reverse-proxies.md
+      - Scaling: production/scaling.md
