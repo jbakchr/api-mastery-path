@@ -282,83 +282,270 @@ This makes it easier for API consumers to understand what went wrong.
 
 ## Discover
 
-Consider the following model:
+### Scenario
+
+A colleague has created the following API model:
 
 ```python
+from pydantic import BaseModel
+
 class ProductCreate(BaseModel):
     name: str
     price: float
 ```
 
-Questions:
+You need to understand what FastAPI will validate automatically.
 
-1. Which fields are required?
-2. What data types are expected?
-3. What validation occurs automatically?
+### Objective
+
+Identify the automatic validation behaviour.
+
+### Success Criteria
+
+You should be able to explain:
+
+- which fields are required
+- which types are expected
+- what happens if validation fails
+
+Hints
+
+??? tip "Small Hint"
+
+    Look at each field definition.
+
+??? tip "Stronger Hint"
+
+    Every field has a Python type.
+
+??? tip "Almost There"
+
+    FastAPI uses these type hints to validate incoming data.
+
+### Solution
+
+??? success "Solution"
+
+    FastAPI validates:
+
+    - name is required
+    - price is required
+    - name must be a string
+    - price must be a float
+
+### Why This Exercise Exists
+
+Before creating validation rules yourself, you should understand the validation FastAPI already provides automatically.
 
 ---
 
 ## Apply
 
-Extend the model:
+### Scenario
+
+You are building a product API.
+
+A product name should:
+
+- contain at least 3 characters
+- contain no more than 100 characters
+
+### Objective
+
+Add validation rules to the model.
+
+Starting point:
 
 ```python
+from pydantic import BaseModel
+
 class ProductCreate(BaseModel):
     name: str
 ```
 
-Requirements:
+### Success Criteria
 
-- Name must contain at least 3 characters
-- Name must contain no more than 100 characters
+The API should reject:
 
-Implement the validation rules.
+- names shorter than 3 characters
+- names longer than 100 characters
+
+### Hints
+
+??? tip "Small Hint"
+
+    Look at Pydantic's Field() helper.
+
+??? tip "Stronger Hint"
+
+    Field can define minimum and maximum lengths.
+
+??? tip "Almost There"
+
+    Investigate:
+
+    ```python
+    Field(min_length=?, max_length=?)
+    ```
+
+### Solution
+
+??? success "Solution"
+
+    ```python
+    from pydantic import BaseModel, Field
+
+
+    class ProductCreate(BaseModel):
+        name: str = Field(
+            min_length=3,
+            max_length=100
+        )
+    ```
+
+### Why This Exercise Exists
+
+Most validation work involves extending the basic validation FastAPI already provides.
 
 ---
 
 ## Compose
 
-Design validation for a blog post API.
+### Scenario
 
-A blog post contains:
+You are creating a blog API.
+
+Each blog post contains:
 
 - title
 - content
 - author_email
-- tags
 
-Think about:
+### Objective
 
-- Required fields
-- Length limits
-- Email validation
-- Response models
+Create a model that validates:
 
-Create appropriate Pydantic models.
+- title length
+- content length
+- email format
+
+### Success Criteria
+
+Your solution should use:
+
+- Field()
+- EmailStr
+- sensible validation limits
+
+### Hints
+
+??? tip "Small Hint"
+
+    You'll need more than one validation technique.
+
+??? tip "Stronger Hint"
+
+    Think about both field constraints and specialized types.
+
+??? tip "Almost There"
+
+    EmailStr handles email validation automatically.
+
+### Solution
+
+??? success "Solution"
+
+    ```python
+    from pydantic import (
+        BaseModel,
+        EmailStr,
+        Field
+    )
+
+
+    class BlogPostCreate(BaseModel):
+        title: str = Field(
+            min_length=5,
+            max_length=200
+        )
+
+        content: str = Field(
+            min_length=50
+        )
+
+        author_email: EmailStr
+    ```
+
+### Why This Exercise Exists
+
+Real APIs rarely validate only one field. Most models combine multiple validation techniques.
 
 ---
 
 ## Automate
 
-Imagine your organization maintains:
+### Scenario
+
+Your organization maintains:
 
 - User APIs
 - Product APIs
 - Billing APIs
 - Reporting APIs
 
-Many APIs use:
+Many models use:
 
-- IDs
-- Pagination parameters
-- Email addresses
-- Timestamps
+- email addresses
+- timestamps
+- pagination parameters
 
-Think about:
+You notice the same validation rules appearing repeatedly.
 
-- Which models might be reusable?
-- Which validation rules are repeated?
-- How could shared models improve consistency?
+### Objective
+
+Identify reusable validation patterns.
+
+### Success Criteria
+
+Design:
+
+- at least one reusable model
+- at least one reusable validation approach
+
+### Hints
+
+??? tip "Small Hint"
+
+    Think about models shared across multiple endpoints.
+
+??? tip "Stronger Hint"
+
+    Pagination often uses the same fields repeatedly.
+
+??? tip "Almost There"
+
+    Common concepts such as email addresses and pagination can often be standardized.
+
+### Solution
+
+??? success "Solution"
+
+    Example:
+
+    ```python
+    from pydantic import BaseModel
+
+
+    class PaginationParams(BaseModel):
+        page: int = 1
+        page_size: int = 25
+    ```
+
+    This model can be reused across multiple endpoints.
+
+### Why This Exercise Exists
+
+As APIs grow, reusable validation patterns improve consistency and reduce duplication.
 
 ---
 

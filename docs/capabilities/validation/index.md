@@ -209,39 +209,129 @@ Response validation is especially useful for large systems where multiple compon
 
 ---
 
-## Discover
+## Discover Exercise
 
-Answer the following questions:
+### Scenario
 
-1. What problems can occur if an API performs no validation?
+Your company has a user registration API.
 
-2. Why might validating data close to the API boundary be beneficial?
-
-3. What kinds of fields commonly require format validation?
-
----
-
-## Apply
-
-Consider a registration endpoint:
+Users occasionally submit invalid data:
 
 ```json
 {
-  "username": "js",
-  "email": "invalid-email",
-  "age": -3
+  "email": "not-an-email",
+  "age": -5
 }
 ```
 
-Identify all validation issues.
+The API currently accepts the request.
 
-What error messages would you return to the client?
+### Objective
+
+Identify which fields should be validated.
+
+### Success Criteria
+
+You should be able to:
+
+- identify invalid fields
+- explain why they are invalid
+- suggest appropriate validation rules
+
+### Hints
+
+??? tip "Small Hint"
+
+    Think about which values might cause problems if stored in a database.
+
+??? tip "Stronger Hint"
+
+    Consider email formats and numeric ranges.
+
+??? tip "Almost There"
+
+    A valid email should look like an email address.
+    Age typically should not be negative.
+
+### Solution
+
+??? success "Solution"
+
+    Validation rules could include:
+
+    - Email must follow a valid email format
+    - Age must be greater than or equal to 0
+
+### Why This Exercise Exists
+
+Validation begins by recognizing bad data before thinking about implementation.
 
 ---
 
-## Compose
+## Apply Exercise
 
-You are designing an API for creating blog posts.
+### Scenario
+
+You are designing an API for registering new users.
+
+Each user contains:
+
+- username
+- email
+- age
+
+### Objective
+
+Create a validation plan.
+
+### Success Criteria
+
+Define:
+
+- required fields
+- length rules
+- format rules
+- range rules
+
+??? tip "Small Hint"
+
+    Start by deciding which fields are mandatory.
+
+??? tip "Stronger Hint"
+
+    Consider username length and email format requirements.
+
+??? tip "Almost There"
+
+    Think about realistic limits such as:
+
+    - username length
+    - minimum age
+    - email format
+
+### Solution
+
+??? success "Solution"
+
+    Example rules:
+
+    - username required
+    - username 3-50 characters
+    - email required
+    - email must be valid
+    - age must be >= 0
+
+### Why This Exercise Exists
+
+API engineers often design validation before writing code.
+
+---
+
+## Compose Exercise
+
+### Scenario
+
+You are designing a blog platform API.
 
 A blog post contains:
 
@@ -250,32 +340,105 @@ A blog post contains:
 - author
 - tags
 
-Think about:
+### Objective
 
-- Which fields are required?
-- Which length limits might make sense?
-- Which business rules should exist?
+Design a complete validation strategy.
 
-Design a validation strategy.
+### Success Criteria
+
+Define:
+
+- required fields
+- length constraints
+- business rules
+- response validation needs
+
+### Hints
+
+??? tip "Small Hint"
+
+    Think about which fields should never be empty.
+
+??? tip "Stronger Hint"
+
+    Consider title length and minimum content length.
+
+??? tip "Almost There"
+
+    Blog posts with empty titles or content probably should not be accepted.
+
+### Solution
+
+??? success "Solution"
+
+    Example:
+
+    - title required
+    - title max 200 characters
+    - content required
+    - content min 50 characters
+    - tags optional
+    - maximum 10 tags
+
+### Why This Exercise Exists
+
+Real APIs typically validate multiple related fields simultaneously.
 
 ---
 
 ## Automate
 
-Imagine your organization has:
+### Scenario
+
+Your organization has:
 
 - User APIs
 - Product APIs
-- Order APIs
 - Billing APIs
+- Order APIs
 
-Many validation rules are repeated.
+All teams repeatedly create similar validation rules.
 
-Think about:
+### Objective
 
-- Which validations could be standardized?
-- Which validation patterns could be reused?
-- How might consistency benefit API consumers?
+Identify validation patterns that could be standardized.
+
+### Success Criteria
+
+Suggest:
+
+- reusable rules
+- shared validation approaches
+- consistency improvements
+
+### Hints
+
+??? tip "Small Hint"
+
+    Think about data types commonly used across services.
+
+??? tip "Stronger Hint"
+
+    Consider IDs, emails and timestamps.
+
+??? tip "Almost There"
+
+    Many APIs validate the same concepts repeatedly.
+
+### Solution
+
+??? success "Solution"
+
+    Examples:
+
+    - shared email validation
+    - shared UUID validation
+    - shared pagination rules
+    - shared timestamp formats
+
+### Why This Exercise Exists
+
+Strong API ecosystems rely on consistent validation patterns.
 
 ---
 
