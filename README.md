@@ -425,7 +425,11 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ---
 
-### Capabilities
+### Core API Engineering Capabilities
+
+The complete Phase 2 capability sequence has now been completed.
+
+#### Capability Pages
 
 ✅ Routing
 
@@ -439,11 +443,15 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ✅ Authorization
 
-🎯 Next: Filtering
+✅ Filtering
 
----
+✅ Pagination
 
-### FastAPI Implementations
+✅ Versioning
+
+✅ Testing
+
+#### FastAPI Implementation Pages
 
 ✅ FastAPI Routing
 
@@ -457,7 +465,13 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ✅ FastAPI Authorization
 
-🎯 Next: FastAPI Filtering
+✅ FastAPI Filtering
+
+✅ FastAPI Pagination
+
+✅ FastAPI Versioning
+
+✅ FastAPI Testing
 
 ---
 
@@ -479,7 +493,7 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ### Learning Model Validation
 
-The capability-first learning approach has now been validated across multiple API engineering topics:
+The capability-first learning approach has now been validated across the complete core API Engineering capability sequence:
 
 ✅ Routing
 
@@ -492,6 +506,14 @@ The capability-first learning approach has now been validated across multiple AP
 ✅ Authentication
 
 ✅ Authorization
+
+✅ Filtering
+
+✅ Pagination
+
+✅ Versioning
+
+✅ Testing
 
 The distinction between:
 
@@ -505,30 +527,99 @@ Implementation Pages
 Framework Implementation Skills
 ```
 
-continues to work well and remains the primary content model for the project.
+has consistently proven valuable across all completed topics and remains the primary content model for the project.
+
+One of the most important discoveries so far is that learners benefit significantly from understanding:
+
+```text
+Why a capability exists
+```
+
+before learning:
+
+```text
+How a framework implements it
+```
+
+This insight continues to guide the structure of all future content.
+
+---
+
+### Phase Completion
+
+The Core API Engineering Capabilities phase is now complete.
+
+The project has successfully validated:
+
+✅ Capability-first learning
+
+✅ Framework implementation learning
+
+✅ Progressive exercises
+
+✅ Consistent page structures
+
+✅ Capability/implementation pairing
+
+The project is now positioned to expand into:
+
+- API Fundamentals
+- API Projects
+- Production APIs
+
+while continuing to preserve the capability-first philosophy that has proven effective throughout development.
 
 ---
 
 ### Current Focus
 
-The project is currently progressing through the core API Engineering capability sequence:
+The first major milestone of the project has now been achieved:
 
 ```text
-✅ Routing
-✅ Validation
-✅ Error Handling
-✅ Documentation
-✅ Authentication
-✅ Authorization
-🎯 Filtering
-⬜ Pagination
-⬜ Versioning
-⬜ Testing
+Routing
+    ↓
+Validation
+    ↓
+Error Handling
+    ↓
+Documentation
+    ↓
+Authentication
+    ↓
+Authorization
+    ↓
+Filtering
+    ↓
+Pagination
+    ↓
+Versioning
+    ↓
+Testing
 ```
 
-Each capability is completed together with a FastAPI implementation page before moving to the next capability.
+This completed sequence represents the core API Engineering capability track.
 
-This ensures concepts are first understood from an API Engineering perspective and then implemented using a real framework.
+The next stage of the project will focus on expanding API Engineering knowledge while preserving the established learning model.
+
+Future content should continue emphasizing:
+
+```text
+Problem
+    ↓
+Capability
+    ↓
+Implementation
+```
+
+rather than:
+
+```text
+Framework
+    ↓
+Syntax
+    ↓
+Tutorial
+```
 
 ---
 
@@ -581,6 +672,114 @@ Avoid:
 ❌ Overengineering
 
 ❌ Teaching syntax without context
+
+---
+
+## Key Insights So Far
+
+Several important lessons have emerged during development.
+
+### Capabilities > Frameworks
+
+Developers tend to remember solutions to problems more readily than framework syntax.
+
+Teach:
+
+```text
+Validate incoming data
+```
+
+before:
+
+```python
+BaseModel
+```
+
+Teach:
+
+```text
+Protect sensitive endpoints
+```
+
+before:
+
+```python
+Depends(...)
+```
+
+---
+
+### Problems > Tutorials
+
+The most valuable exercises begin with realistic problems.
+
+Learners engage more deeply when they are solving challenges rather than following instructions.
+
+---
+
+### Capability Before Implementation
+
+The strongest learning flow has consistently been:
+
+```text
+Problem
+    ↓
+Capability
+    ↓
+Implementation
+```
+
+This creates deeper understanding and makes framework transitions easier in the future.
+
+---
+
+### Frameworks Are Vehicles
+
+The goal is not:
+
+```text
+FastAPI Mastery
+```
+
+The goal is:
+
+```text
+API Engineering Mastery
+```
+
+FastAPI serves as the current implementation vehicle.
+
+Additional frameworks may be added later, but the API Engineering concepts remain the primary focus.
+
+---
+
+### Consistency Matters
+
+Every capability page follows:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+Every implementation page follows:
+
+```text
+Discover
+    ↓
+Apply
+    ↓
+Compose
+    ↓
+Automate
+```
+
+Maintaining this consistency reduces cognitive load and keeps learners focused on learning rather than navigation.
 
 ---
 
