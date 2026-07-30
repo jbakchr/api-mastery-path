@@ -1,0 +1,2224 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn API Engineering progressively through fundamentals, capabilities, implementations, projects, and production systems.">
+      
+      
+      
+        <link rel="canonical" href="https://jbakchr.github.io/api-mastery-path/implementations/fastapi/authorization/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>FastAPI Authorization - API Mastery Path</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fastapi-authorization" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="API Mastery Path" class="md-header__button md-logo" aria-label="API Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            API Mastery Path
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FastAPI Authorization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jbakchr/api-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/api-mastery-path
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="API Mastery Path" class="md-nav__button md-logo" aria-label="API Mastery Path" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    API Mastery Path
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jbakchr/api-mastery-path" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jbakchr/api-mastery-path
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/http.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/rest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    REST
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/content-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/cookies-vs-tokens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cookies vs Tokens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../fundamentals/openapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenAPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capabilities
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Capabilities
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/routing.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/validation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/error-handling.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/documentation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/authentication.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/authorization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/filtering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/pagination.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/versioning.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../capabilities/testing.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastAPI Implementations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FastAPI Implementations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-routing.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-validation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-error-handling.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-documentation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-authentication.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-authorization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-filtering.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-pagination.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pagination
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-versioning.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fastapi-testing.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/notes-api.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notes API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/task-api.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/url-shortener.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URL Shortener
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../projects/knowledge-base-api.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Knowledge Base API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Production APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Production APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/logging.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/monitoring.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/observability.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/security.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/deployment.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/containers.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/reverse-proxies.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reverse Proxies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../production/scaling.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scaling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#depends" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depends
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#current-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current User
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permission Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpexception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPException
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership Checks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fastapi-authorization">FastAPI Authorization<a class="headerlink" href="#fastapi-authorization" title="Permanent link">&para;</a></h1>
+<p>This page demonstrates how FastAPI implements the concepts introduced in the Authorization capability page.</p>
+<p>Before reading this page, it is recommended that you first understand:</p>
+<ul>
+<li>The problem authorization solves</li>
+<li>Why authorization matters</li>
+<li>General API engineering concepts behind authorization</li>
+</ul>
+<p>Authorization is a capability.</p>
+<p>FastAPI is one way of implementing that capability.</p>
+<hr />
+<h2 id="why">Why<a class="headerlink" href="#why" title="Permanent link">&para;</a></h2>
+<p>FastAPI provides several tools that make authorization easier to implement and maintain.</p>
+<p>Once a user has been authenticated, APIs often need to enforce rules such as:</p>
+<ul>
+<li>Administrators can delete resources</li>
+<li>Managers can view reports</li>
+<li>Users can only access their own data</li>
+</ul>
+<p>FastAPI's dependency system makes it easy to centralize authorization decisions and reuse them across many endpoints.</p>
+<p>Benefits include:</p>
+<p>✅ Reusable authorization logic</p>
+<p>✅ Cleaner endpoint code</p>
+<p>✅ Better maintainability</p>
+<p>✅ Consistent access control</p>
+<p>✅ Easier testing</p>
+<p>✅ Reduced duplication</p>
+<p>✅ Integration with authentication dependencies</p>
+<p>Authorization rules can be implemented once and reused throughout the application.</p>
+<hr />
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="depends">Depends<a class="headerlink" href="#depends" title="Permanent link">&para;</a></h3>
+<p>Most authorization logic is implemented using dependencies.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">Depends</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/reports&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_reports</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">require_manager</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>The dependency determines whether access should be granted.</p>
+<hr />
+<h3 id="current-user">Current User<a class="headerlink" href="#current-user" title="Permanent link">&para;</a></h3>
+<p>Authorization decisions usually depend on the authenticated user.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_current_user</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Authorization typically begins by identifying who is making the request.</p>
+<hr />
+<h3 id="role-checks">Role Checks<a class="headerlink" href="#role-checks" title="Permanent link">&para;</a></h3>
+<p>A common authorization strategy is role-based access control.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;admin&quot;</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Roles often represent broad groups of permissions.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>User
+Manager
+Administrator
+</code></pre></div>
+<hr />
+<h3 id="permission-checks">Permission Checks<a class="headerlink" href="#permission-checks" title="Permanent link">&para;</a></h3>
+<p>Some systems make decisions based on permissions rather than roles.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="s2">&quot;delete_user&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;permissions&quot;</span><span class="p">]:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Permissions often represent specific actions.</p>
+<hr />
+<h3 id="httpexception">HTTPException<a class="headerlink" href="#httpexception" title="Permanent link">&para;</a></h3>
+<p>Unauthorized actions are commonly rejected using <code>HTTPException</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+    <span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span>
+    <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Access denied&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Authorization failures should communicate that access is not permitted.</p>
+<hr />
+<h3 id="ownership-checks">Ownership Checks<a class="headerlink" href="#ownership-checks" title="Permanent link">&para;</a></h3>
+<p>Many APIs allow users to access their own resources while restricting access to resources owned by others.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">task</span><span class="o">.</span><span class="n">owner_id</span> <span class="o">!=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>Ownership is one of the most common authorization patterns.</p>
+<hr />
+<h1 id="discover">Discover<a class="headerlink" href="#discover" title="Permanent link">&para;</a></h1>
+<h2 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h2>
+<p>You encounter the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Depends</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_current_user</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;jonas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span>
+    <span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_user</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;deleted&quot;</span><span class="p">:</span> <span class="n">user_id</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>A user is authenticated before reaching the endpoint.</p>
+<p>No authorization checks exist.</p>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h2>
+<p>Understand why authentication alone is not enough.</p>
+<h2 id="success-criteria">Success Criteria<a class="headerlink" href="#success-criteria" title="Permanent link">&para;</a></h2>
+<p>The learner should be able to explain:</p>
+<ul>
+<li>What information is available about the current user</li>
+<li>Why authorization is missing</li>
+<li>What risks may exist</li>
+</ul>
+<h2 id="hints">Hints<a class="headerlink" href="#hints" title="Permanent link">&para;</a></h2>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>The API knows who the user is.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Consider whether every authenticated user should delete users.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Authentication establishes identity, but access rules are still missing.</p>
+</details>
+<h2 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Solution</summary>
+<p>The endpoint knows who the caller is because <code>get_current_user()</code> provides identity information.</p>
+<p>However, the endpoint never checks whether the user is allowed to delete users.</p>
+<p>Authorization is required to enforce access control decisions.</p>
+</details>
+<h2 id="why-this-exercise-exists">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists" title="Permanent link">&para;</a></h2>
+<p>The goal is to understand the distinction between authentication and authorization.</p>
+<p>FastAPI often uses dependencies for both, but they solve different problems.</p>
+<hr />
+<h1 id="apply">Apply<a class="headerlink" href="#apply" title="Permanent link">&para;</a></h1>
+<h2 id="scenario_1">Scenario<a class="headerlink" href="#scenario_1" title="Permanent link">&para;</a></h2>
+<p>The following endpoint should only be accessible by administrators.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_user</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;deleted&quot;</span><span class="p">:</span> <span class="n">user_id</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h2 id="objective_1">Objective<a class="headerlink" href="#objective_1" title="Permanent link">&para;</a></h2>
+<p>Add authorization logic.</p>
+<h2 id="success-criteria_1">Success Criteria<a class="headerlink" href="#success-criteria_1" title="Permanent link">&para;</a></h2>
+<p>The learner should be able to:</p>
+<ul>
+<li>Check user roles</li>
+<li>Deny access when appropriate</li>
+<li>Return a useful error response</li>
+</ul>
+<h2 id="hints_1">Hints<a class="headerlink" href="#hints_1" title="Permanent link">&para;</a></h2>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>The current user already contains role information.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Use an authorization check before continuing.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Return an error if the role is not allowed.</p>
+</details>
+<h2 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Solution</summary>
+</details>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_user</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)</span>
+<span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;admin&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Access denied&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;deleted&quot;</span><span class="p">:</span> <span class="n">user_id</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>The endpoint now verifies authorization before performing the operation.</p>
+<h2 id="why-this-exercise-exists_1">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_1" title="Permanent link">&para;</a></h2>
+<p>The goal is to reinforce basic authorization checks and access control patterns.</p>
+<hr />
+<h1 id="compose">Compose<a class="headerlink" href="#compose" title="Permanent link">&para;</a></h1>
+<h2 id="scenario_2">Scenario<a class="headerlink" href="#scenario_2" title="Permanent link">&para;</a></h2>
+<p>A Task API contains:</p>
+<ul>
+<li>View task</li>
+<li>Update task</li>
+<li>Delete task</li>
+</ul>
+<p>Users should only access their own tasks.</p>
+<p>Administrators should access any task.</p>
+<h2 id="objective_2">Objective<a class="headerlink" href="#objective_2" title="Permanent link">&para;</a></h2>
+<p>Combine ownership and role-based authorization.</p>
+<h2 id="success-criteria_2">Success Criteria<a class="headerlink" href="#success-criteria_2" title="Permanent link">&para;</a></h2>
+<p>The learner should be able to combine:</p>
+<ul>
+<li>Current user dependencies</li>
+<li>Role checks</li>
+<li>Ownership checks</li>
+</ul>
+<h2 id="hints_2">Hints<a class="headerlink" href="#hints_2" title="Permanent link">&para;</a></h2>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Not all authorization requires roles.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Ownership can also determine access.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Allow administrators broader access than normal users.</p>
+</details>
+<h2 id="solution_2">Solution<a class="headerlink" href="#solution_2" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Solution</summary>
+</details>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">can_access_task</span><span class="p">(</span>
+    <span class="n">task</span><span class="p">,</span>
+    <span class="n">user</span>
+<span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;admin&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">task</span><span class="o">.</span><span class="n">owner_id</span> <span class="o">==</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>The authorization logic now considers:</p>
+<ul>
+<li>Administrative access</li>
+<li>Resource ownership</li>
+</ul>
+<p>This creates more realistic access control behavior.</p>
+<h2 id="why-this-exercise-exists_2">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_2" title="Permanent link">&para;</a></h2>
+<p>Real-world APIs often combine multiple authorization strategies.</p>
+<p>Authorization is rarely solved through a single rule.</p>
+<hr />
+<h1 id="automate">Automate<a class="headerlink" href="#automate" title="Permanent link">&para;</a></h1>
+<h2 id="scenario_3">Scenario<a class="headerlink" href="#scenario_3" title="Permanent link">&para;</a></h2>
+<p>Your organization maintains many FastAPI services.</p>
+<p>Different teams implement authorization differently.</p>
+<p>Some endpoints check roles directly.</p>
+<p>Some check permissions.</p>
+<p>Some duplicate the same authorization code repeatedly.</p>
+<p>The architecture team wants a reusable approach.</p>
+<h2 id="objective_3">Objective<a class="headerlink" href="#objective_3" title="Permanent link">&para;</a></h2>
+<p>Create reusable authorization patterns.</p>
+<h2 id="success-criteria_3">Success Criteria<a class="headerlink" href="#success-criteria_3" title="Permanent link">&para;</a></h2>
+<p>The learner should be able to:</p>
+<ul>
+<li>Identify duplication</li>
+<li>Create reusable authorization dependencies</li>
+<li>Standardize authorization behavior</li>
+</ul>
+<h2 id="hints_3">Hints<a class="headerlink" href="#hints_3" title="Permanent link">&para;</a></h2>
+<details class="tip">
+<summary>Small Hint</summary>
+<p>Look for repeated authorization checks.</p>
+</details>
+<details class="tip">
+<summary>Stronger Hint</summary>
+<p>Dependencies can centralize access control.</p>
+</details>
+<details class="tip">
+<summary>Almost There</summary>
+<p>Shared authorization functions improve consistency.</p>
+</details>
+<h2 id="solution_3">Solution<a class="headerlink" href="#solution_3" title="Permanent link">&para;</a></h2>
+<details class="success">
+<summary>Solution</summary>
+</details>
+<p>One possible approach is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">require_admin</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)</span>
+<span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;admin&quot;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Access denied&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+<p>Endpoints can then use:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">delete_user</span><span class="p">(</span>
+    <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">require_admin</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<p>This creates a reusable authorization pattern that can be applied consistently across services.</p>
+<h2 id="why-this-exercise-exists_3">Why This Exercise Exists<a class="headerlink" href="#why-this-exercise-exists_3" title="Permanent link">&para;</a></h2>
+<p>Professional APIs typically rely on shared access control patterns rather than implementing authorization separately in every endpoint.</p>
+<hr />
+<h2 id="common-pitfalls">Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h2>
+<h3 id="confusing-authentication-and-authorization">Confusing Authentication and Authorization<a class="headerlink" href="#confusing-authentication-and-authorization" title="Permanent link">&para;</a></h3>
+<h4 id="why-it-happens">Why It Happens<a class="headerlink" href="#why-it-happens" title="Permanent link">&para;</a></h4>
+<p>The two concepts are closely related and often appear together.</p>
+<h4 id="better-approach">Better Approach<a class="headerlink" href="#better-approach" title="Permanent link">&para;</a></h4>
+<p>Remember:</p>
+<div class="highlight"><pre><span></span><code>Authentication
+    ↓
+Who are you?
+
+Authorization
+    ↓
+What are you allowed to do?
+</code></pre></div>
+<p>Treat them as separate concerns.</p>
+<hr />
+<h3 id="checking-roles-inside-every-endpoint">Checking Roles Inside Every Endpoint<a class="headerlink" href="#checking-roles-inside-every-endpoint" title="Permanent link">&para;</a></h3>
+<h4 id="why-it-happens_1">Why It Happens<a class="headerlink" href="#why-it-happens_1" title="Permanent link">&para;</a></h4>
+<p>Authorization logic initially seems simple.</p>
+<h4 id="better-approach_1">Better Approach<a class="headerlink" href="#better-approach_1" title="Permanent link">&para;</a></h4>
+<p>Move authorization into reusable dependencies.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">require_admin</span><span class="p">)</span>
+</code></pre></div>
+<p>This reduces duplication.</p>
+<hr />
+<h3 id="ignoring-resource-ownership">Ignoring Resource Ownership<a class="headerlink" href="#ignoring-resource-ownership" title="Permanent link">&para;</a></h3>
+<h4 id="why-it-happens_2">Why It Happens<a class="headerlink" href="#why-it-happens_2" title="Permanent link">&para;</a></h4>
+<p>Developers focus only on roles.</p>
+<h4 id="better-approach_2">Better Approach<a class="headerlink" href="#better-approach_2" title="Permanent link">&para;</a></h4>
+<p>Consider ownership rules as well.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>User can edit their own task
+</code></pre></div>
+<p>Ownership is a common authorization strategy.</p>
+<hr />
+<h3 id="using-inconsistent-authorization-rules">Using Inconsistent Authorization Rules<a class="headerlink" href="#using-inconsistent-authorization-rules" title="Permanent link">&para;</a></h3>
+<h4 id="why-it-happens_3">Why It Happens<a class="headerlink" href="#why-it-happens_3" title="Permanent link">&para;</a></h4>
+<p>Different developers implement access rules differently.</p>
+<h4 id="better-approach_3">Better Approach<a class="headerlink" href="#better-approach_3" title="Permanent link">&para;</a></h4>
+<p>Create shared patterns and conventions.</p>
+<p>Consistency improves maintainability and predictability.</p>
+<hr />
+<h3 id="returning-incorrect-status-codes">Returning Incorrect Status Codes<a class="headerlink" href="#returning-incorrect-status-codes" title="Permanent link">&para;</a></h3>
+<h4 id="why-it-happens_4">Why It Happens<a class="headerlink" href="#why-it-happens_4" title="Permanent link">&para;</a></h4>
+<p>Authentication and authorization failures are easily confused.</p>
+<h4 id="better-approach_4">Better Approach<a class="headerlink" href="#better-approach_4" title="Permanent link">&para;</a></h4>
+<p>Understand the distinction:</p>
+<div class="highlight"><pre><span></span><code>401 Unauthorized
+    ↓
+Authentication problem
+
+403 Forbidden
+    ↓
+Authorization problem
+</code></pre></div>
+<p>Use responses that accurately describe the issue.</p>
+<hr />
+<h2 id="why-this-matters">Why This Matters<a class="headerlink" href="#why-this-matters" title="Permanent link">&para;</a></h2>
+<p>FastAPI provides excellent support for authorization through:</p>
+<ul>
+<li>Depends</li>
+<li>Reusable dependencies</li>
+<li>Current user patterns</li>
+<li>HTTPException</li>
+<li>Authentication integration</li>
+</ul>
+<p>These tools help developers implement access control without scattering authorization logic throughout their applications.</p>
+<p>As systems grow, authorization becomes increasingly important because different users often require different access levels.</p>
+<p>Understanding FastAPI's authorization patterns helps you build APIs that are:</p>
+<ul>
+<li>More secure</li>
+<li>More maintainable</li>
+<li>More predictable</li>
+<li>Easier to scale</li>
+</ul>
+<p>Authentication establishes identity.</p>
+<p>Authorization enforces access control.</p>
+<p>Together, they form a foundation for secure API engineering.</p>
+<hr />
+<h2 id="related-capability">Related Capability<a class="headerlink" href="#related-capability" title="Permanent link">&para;</a></h2>
+<p>✅ Authorization</p>
+<p>Return to the Authorization capability page to review:</p>
+<ul>
+<li>Why authorization exists</li>
+<li>Roles and permissions</li>
+<li>Resource ownership</li>
+<li>Access control</li>
+<li>Authentication vs authorization</li>
+</ul>
+<p>The capability page teaches the problem.</p>
+<p>This page teaches how FastAPI implements the solution.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
