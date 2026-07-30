@@ -1,8 +1,8 @@
 # ROADMAP
 
-**API Mastery Path** is a long-term project focused on helping developers progressively master API engineering through fundamentals, capabilities, framework implementations, projects, and production systems.
+API Mastery Path is a long-term project focused on helping developers progressively master API Engineering through fundamentals, capabilities, framework implementations, realistic projects, and production systems.
 
-This roadmap exists to guide future development and prioritize the most valuable content.
+This roadmap exists to guide future development and prioritize the most valuable learning content.
 
 ---
 
@@ -16,22 +16,58 @@ This roadmap exists to guide future development and prioritize the most valuable
 
 ✅ Documentation structure established
 
-✅ Learning philosophy established
+✅ README.md created
 
-✅ Capability-first approach established
+✅ ROADMAP.md created
 
-✅ Framework implementation approach established
+✅ PROJECT_CONTEXT.md created
+
+✅ Capability page template created
+
+✅ Implementation page template created
+
+✅ Exercise philosophy established
+
+✅ Progressive exercise structure established
 
 ✅ FastAPI selected as first implementation track
 
-✅ Initial project structure created
+---
 
-Current focus:
+## Capabilities
+
+✅ Routing
+
+✅ Validation
+
+---
+
+## FastAPI Implementations
+
+✅ FastAPI Routing
+
+✅ FastAPI Validation
+
+---
+
+## Learning Model
+
+✅ Capability-first learning model established
+
+✅ Framework implementation model established
+
+✅ Exercise structure established
+
+Capability pages teach:
 
 ```text
-Capabilities
-    ↓
-Validation
+API Engineering Thinking
+```
+
+Implementation pages teach:
+
+```text
+Framework Implementation Skills
 ```
 
 ---
@@ -63,48 +99,11 @@ The primary value of API Mastery Path is the learning content.
 
 ---
 
-# Phase 1 - Validate The Learning Model
+# Phase 1 - Establish The Learning Model
 
 Goal:
 
-Create the first complete capability and implementation pair.
-
----
-
-## Validation
-
-### Capability
-
-- Create Validation capability page
-- Define the problem validation solves
-- Explain common validation rules
-- Explain request validation
-- Explain response validation
-- Create Discover section
-- Create Apply section
-- Create Compose section
-- Create Automate section
-
-### FastAPI Implementation
-
-- Validation with Pydantic
-- Request models
-- Response models
-- Field validation
-- Custom validation
-- Validation examples
-
-Goal:
-
-Validate that the capability-first learning model works.
-
----
-
-# Phase 2 - Core API Capabilities
-
-Goal:
-
-Build a strong foundation in common API engineering capabilities.
+Validate the overall learning approach.
 
 ---
 
@@ -112,17 +111,123 @@ Build a strong foundation in common API engineering capabilities.
 
 ### Capability
 
-- Discover
-- Apply
-- Compose
-- Automate
+✅ Complete
 
 ### FastAPI Implementation
 
-- Path parameters
-- Query parameters
-- APIRouter
-- Route organization
+✅ Complete
+
+---
+
+## Validation
+
+### Capability
+
+✅ Complete
+
+### FastAPI Implementation
+
+✅ Complete
+
+---
+
+## Templates
+
+### Capability Page Template
+
+✅ Complete
+
+### Implementation Page Template
+
+✅ Complete
+
+---
+
+Goal Achieved:
+
+✅ Capability-first learning approach validated
+
+✅ Framework implementation approach validated
+
+✅ Exercise structure validated
+
+✅ Project direction validated
+
+---
+
+# Phase 2 - Core API Engineering Capabilities
+
+Goal:
+
+Build a strong foundation in API Engineering.
+
+Capabilities should be developed in the following order:
+
+```text
+Routing
+    ↓
+Validation
+    ↓
+Error Handling
+    ↓
+Documentation
+    ↓
+Authentication
+    ↓
+Authorization
+    ↓
+Filtering
+    ↓
+Pagination
+    ↓
+Versioning
+    ↓
+Testing
+```
+
+---
+
+## Error Handling
+
+### Capability
+
+- The problem errors solve
+- Error design
+- Error responses
+- Consistent error structures
+
+### FastAPI Implementation
+
+- HTTPException
+- Status codes
+- Custom exceptions
+- Exception handlers
+
+Status:
+
+⬜ Not Started
+
+---
+
+## Documentation
+
+### Capability
+
+- Why documentation matters
+- API discoverability
+- API consumers
+- API contracts
+
+### FastAPI Implementation
+
+- OpenAPI
+- Swagger UI
+- ReDoc
+- Documentation customization
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -130,16 +235,20 @@ Build a strong foundation in common API engineering capabilities.
 
 ### Capability
 
-- Authentication concepts
-- User identity
+- Identity
 - Authentication flows
-- Token-based authentication
+- Sessions
+- Tokens
 
 ### FastAPI Implementation
 
 - OAuth2
 - JWT
 - Security dependencies
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -157,35 +266,9 @@ Build a strong foundation in common API engineering capabilities.
 - Permission checks
 - Protected endpoints
 
----
+Status:
 
-## Error Handling
-
-### Capability
-
-- Why errors matter
-- Error design
-- Consistent responses
-
-### FastAPI Implementation
-
-- HTTPException
-- Custom exceptions
-- Exception handlers
-
----
-
-## Pagination
-
-### Capability
-
-- Why pagination exists
-- Common pagination patterns
-
-### FastAPI Implementation
-
-- Offset pagination
-- Limit pagination
+⬜ Not Started
 
 ---
 
@@ -195,28 +278,54 @@ Build a strong foundation in common API engineering capabilities.
 
 - Search
 - Filtering
-- Querying resources
+- Data discovery
 
 ### FastAPI Implementation
 
 - Query parameters
 - Dynamic filtering
 
+Status:
+
+⬜ Not Started
+
 ---
 
-## Documentation
+## Pagination
 
 ### Capability
 
-- API discoverability
-- API consumers
-- Documentation design
+- Why pagination exists
+- Pagination strategies
+- User experience considerations
 
 ### FastAPI Implementation
 
-- OpenAPI
-- Swagger UI
-- ReDoc
+- Limit/Offset
+- Cursor pagination
+
+Status:
+
+⬜ Not Started
+
+---
+
+## Versioning
+
+### Capability
+
+- Why versioning exists
+- Backwards compatibility
+- API evolution
+
+### FastAPI Implementation
+
+- Path versioning
+- Header versioning
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -224,14 +333,19 @@ Build a strong foundation in common API engineering capabilities.
 
 ### Capability
 
-- Testing philosophies
+- Why testing matters
 - Testing strategies
+- Confidence and reliability
 
 ### FastAPI Implementation
 
 - TestClient
-- Integration tests
 - Endpoint tests
+- Integration tests
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -239,7 +353,7 @@ Build a strong foundation in common API engineering capabilities.
 
 Goal:
 
-Develop a deep understanding of how APIs work.
+Develop a deep understanding of how APIs work independently of any framework.
 
 ---
 
@@ -251,6 +365,10 @@ Develop a deep understanding of how APIs work.
 - Headers
 - Status Codes
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## REST
@@ -258,6 +376,11 @@ Develop a deep understanding of how APIs work.
 - Resources
 - Verbs
 - Statelessness
+- Resource Design
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -267,14 +390,22 @@ Develop a deep understanding of how APIs work.
 - Serialization
 - Deserialization
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Content Types
 
 - JSON
 - XML
-- Form data
-- Multipart data
+- Form Data
+- Multipart Data
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -283,6 +414,11 @@ Develop a deep understanding of how APIs work.
 - Sessions
 - Cookies
 - JWT
+- Authentication tradeoffs
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -292,46 +428,89 @@ Develop a deep understanding of how APIs work.
 - Contracts
 - Documentation generation
 
+Status:
+
+⬜ Not Started
+
 ---
 
-# Phase 4 - FastAPI Engineering
+# Phase 4 - Advanced FastAPI Engineering
 
 Goal:
 
-Develop strong practical FastAPI skills.
+Develop stronger framework-specific FastAPI skills.
 
 ---
 
-## FastAPI Framework Track
+## Advanced Routing
 
-### Routing
+- Nested routers
+- Route organization
+- Router patterns
 
-- Advanced routing
+Status:
 
-### Validation
+⬜ Not Started
 
-- Advanced validation
+---
 
-### Dependency Injection
+## Advanced Validation
+
+- Pydantic Models
+- Custom validators
+- Model reuse
+
+Status:
+
+⬜ Not Started
+
+---
+
+## Dependency Injection
 
 - Depends
-- Reusable dependencies
+- Shared dependencies
+- Reusable patterns
 
-### Databases
+Status:
 
-- SQLAlchemy
+⬜ Not Started
+
+---
+
+## Databases
+
 - Database sessions
+- SQLAlchemy
+- Persistence
 
-### Background Tasks
+Status:
+
+⬜ Not Started
+
+---
+
+## Background Tasks
 
 - BackgroundTask
-- Scheduled work
+- Task execution patterns
 
-### Deployment
+Status:
+
+⬜ Not Started
+
+---
+
+## Deployment
 
 - Uvicorn
 - Gunicorn
-- Production deployment
+- Docker
+- Production deployments
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -339,7 +518,7 @@ Develop strong practical FastAPI skills.
 
 Goal:
 
-Combine capabilities into realistic APIs.
+Combine multiple capabilities into realistic systems.
 
 ---
 
@@ -349,7 +528,12 @@ Capabilities:
 
 - Routing
 - Validation
+- Error Handling
 - Documentation
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -360,6 +544,11 @@ Capabilities:
 - Authentication
 - Authorization
 - Validation
+- Testing
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -369,7 +558,12 @@ Capabilities:
 
 - Databases
 - Validation
-- Rate limiting
+- Filtering
+- Rate Limiting
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -382,13 +576,17 @@ Capabilities:
 - Pagination
 - Authentication
 
+Status:
+
+⬜ Not Started
+
 ---
 
 # Phase 6 - Production APIs
 
 Goal:
 
-Learn how real APIs are operated and maintained.
+Learn how APIs are operated and maintained in production environments.
 
 ---
 
@@ -397,6 +595,10 @@ Learn how real APIs are operated and maintained.
 - Structured logging
 - Log design
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Monitoring
@@ -404,12 +606,20 @@ Learn how real APIs are operated and maintained.
 - Metrics
 - Health checks
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Observability
 
 - Tracing
 - Diagnostics
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -419,12 +629,20 @@ Learn how real APIs are operated and maintained.
 - Hardening
 - Threat mitigation
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Deployment
 
-- Production deployments
+- Deployment workflows
 - Environment management
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -433,6 +651,10 @@ Learn how real APIs are operated and maintained.
 - Docker
 - Containerization
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Reverse Proxies
@@ -440,20 +662,28 @@ Learn how real APIs are operated and maintained.
 - NGINX
 - Proxy concepts
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Scaling
 
-- Horizontal scaling
 - Load balancing
+- Horizontal scaling
+
+Status:
+
+⬜ Not Started
 
 ---
 
-# Phase 7 - Additional Implementation Tracks
+# Phase 7 - Additional Framework Tracks
 
 Goal:
 
-Apply existing API knowledge using new technologies.
+Apply existing API Engineering knowledge using additional technologies.
 
 Important:
 
@@ -463,14 +693,19 @@ Only begin this phase after FastAPI Track feels mature.
 
 ## Express
 
-Potential topics:
+Potential Topics:
 
 - Routing
 - Validation
+- Error Handling
 - Authentication
 - Authorization
 - Testing
 - Documentation
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -478,11 +713,19 @@ Potential topics:
 
 Potential future implementation track.
 
+Status:
+
+⬜ Not Started
+
 ---
 
 ## Spring Boot
 
 Potential future implementation track.
+
+Status:
+
+⬜ Not Started
 
 ---
 
@@ -538,15 +781,18 @@ API Mastery Path is successful if it helps a learner move from:
 to:
 
 ```text
-"I understand API engineering."
+"I understand API Engineering."
 ```
 
 and eventually:
 
 ```text
-"I can design, build,
-deploy, maintain,
-and evolve production APIs."
+"I can design,
+build,
+deploy,
+maintain,
+and evolve
+production APIs."
 ```
 
 ---
@@ -554,19 +800,36 @@ and evolve production APIs."
 # Current Priority
 
 ```text
-Capabilities
+Routing
     ↓
 Validation
     ↓
-FastAPI Validation
+Error Handling
 ```
+
+Next capability:
+
+✅ Routing
+
+✅ Validation
+
+🎯 Error Handling
+
+Next implementation:
+
+✅ FastAPI Routing
+
+✅ FastAPI Validation
+
+🎯 FastAPI Error Handling
 
 Do not rush into:
 
 - Express
 - ASP.NET
 - Spring Boot
-- Advanced projects
-- Production topics
+- Advanced FastAPI topics
+- Projects
+- Production APIs
 
-First validate that the capability-first learning approach provides a useful and enjoyable learning experience.
+First complete the core API Engineering capability sequence and validate that the learning progression remains useful and enjoyable.
