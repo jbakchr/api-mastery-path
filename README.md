@@ -8,7 +8,7 @@ The project is primarily intended as a personal learning resource, but may also 
 
 ---
 
-## Why This Project Exists
+# Why This Project Exists
 
 Many learning resources focus on specific frameworks:
 
@@ -23,6 +23,7 @@ Knowing how to create routes and endpoints, but not fully understanding the broa
 
 Examples include:
 
+- Routing
 - Validation
 - Authentication
 - Authorization
@@ -38,7 +39,7 @@ API Mastery Path exists to help develop deep familiarity with API concepts, capa
 
 ---
 
-## Learning Philosophy
+# Learning Philosophy
 
 The goal is not:
 
@@ -49,7 +50,7 @@ The goal is not:
 
 The goal is:
 
-👉 Build practical API engineering capabilities through repetition and problem solving.
+👉 Build practical API Engineering capabilities through repetition and problem solving.
 
 Success is measured by questions such as:
 
@@ -61,7 +62,7 @@ Success is measured by questions such as:
 
 ---
 
-## Core Philosophy
+# Core Philosophy
 
 Frameworks change.
 
@@ -77,7 +78,7 @@ Frameworks are implementation vehicles for learning API capabilities.
 
 ---
 
-## Learning Progression
+# Learning Progression
 
 The project is built around the following progression:
 
@@ -111,9 +112,9 @@ Each level builds upon the previous one.
 
 ---
 
-## Site Structure
+# Site Structure
 
-### Fundamentals
+## Fundamentals
 
 Focus:
 
@@ -135,24 +136,24 @@ Goal:
 
 ---
 
-### Capabilities
+## Capabilities
 
 Focus:
 
-Learn common API engineering capabilities.
+Learn common API Engineering capabilities.
 
 Examples:
 
 - Routing
 - Validation
+- Error Handling
+- Documentation
 - Authentication
 - Authorization
-- Pagination
 - Filtering
+- Pagination
 - Versioning
-- Documentation
 - Testing
-- Error Handling
 
 Goal:
 
@@ -162,7 +163,7 @@ Capabilities are taught independently of any framework.
 
 ---
 
-### Implementations
+## Implementations
 
 Focus:
 
@@ -185,7 +186,7 @@ Additional implementation tracks may be added in the future.
 
 ---
 
-### Projects
+## Projects
 
 Focus:
 
@@ -204,7 +205,7 @@ Goal:
 
 ---
 
-### Production APIs
+## Production APIs
 
 Focus:
 
@@ -227,72 +228,228 @@ Goal:
 
 ---
 
-## Capability Structure
+# Two Types of Learning
 
-Each capability page follows a consistent progression:
+One of the core ideas behind API Mastery Path is that capability pages and implementation pages have different purposes.
+
+---
+
+## Capability Pages
+
+Capability pages teach:
+
+```text
+API Engineering Thinking
+```
+
+Examples:
+
+- Routing
+- Validation
+- Authentication
+- Pagination
+
+The focus is understanding:
+
+```text
+The Problem
+    ↓
+The Capability
+    ↓
+Why It Matters
+```
+
+The learner should understand:
+
+- why the capability exists
+- which problem it solves
+- how it applies to API design
+
+Frameworks are intentionally not the focus.
+
+---
+
+## Implementation Pages
+
+Implementation pages teach:
+
+```text
+Framework Implementation Skills
+```
+
+Examples:
+
+- FastAPI Routing
+- FastAPI Validation
+- FastAPI Authentication
+
+The focus is understanding:
+
+```text
+The Capability
+    ↓
+Framework Features
+    ↓
+Code Implementation
+```
+
+The learner should understand:
+
+- how the framework implements the capability
+- how to use the framework in practice
+- how to create reusable implementation patterns
+
+---
+
+# Exercise Philosophy
+
+API Mastery Path is built around active learning.
+
+Reading alone is not enough.
+
+The goal is to repeatedly practice API Engineering concepts until they become natural tools for solving problems.
+
+---
+
+## Capability Exercises
+
+Capability pages focus on API Engineering thinking.
+
+Every exercise follows:
+
+```text
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
+```
+
+Progression:
 
 ```text
 Discover
     ↓
+Understand
+
 Apply
     ↓
+Design
+
 Compose
     ↓
+Combine
+
 Automate
-```
-
-### Discover
-
-Learn the capability.
-
-### Apply
-
-Use the capability in realistic scenarios.
-
-### Compose
-
-Combine the capability with other concepts.
-
-### Automate
-
-Create reusable solutions and patterns.
-
-The goal is to gradually move from understanding a capability to applying it naturally when designing APIs.
-
----
-
-## Framework Implementations
-
-Capability pages focus on concepts first.
-
-For example:
-
-```text
-Validation
-```
-
-teaches:
-
-- Why validation exists
-- Common validation rules
-- Request validation
-- Response validation
-
-Framework-specific implementations are linked separately.
-
-For example:
-
-```text
-Validation
     ↓
-FastAPI Implementation
+Generalize
 ```
 
-This reinforces the idea that capabilities come before frameworks.
+The goal is to teach how API engineers think.
 
 ---
 
-## Project Principles
+## Implementation Exercises
+
+Implementation pages focus on coding.
+
+Every exercise follows:
+
+```text
+Scenario
+    ↓
+Objective
+    ↓
+Success Criteria
+    ↓
+Hints
+    ↓
+Solution
+    ↓
+Why This Exercise Exists
+```
+
+Progression:
+
+```text
+Discover
+    ↓
+Read Code
+
+Apply
+    ↓
+Modify Code
+
+Compose
+    ↓
+Write Code
+
+Automate
+    ↓
+Create Reusable Patterns
+```
+
+The goal is to teach how API engineers implement solutions using frameworks.
+
+---
+
+# Current Progress
+
+## Project Foundation
+
+✅ GitHub Pages structure established
+
+✅ MkDocs structure established
+
+✅ README.md created
+
+✅ ROADMAP.md created
+
+✅ PROJECT_CONTEXT.md created
+
+✅ Capability page template created
+
+✅ Implementation page template created
+
+✅ Exercise structure established
+
+---
+
+## Capabilities
+
+✅ Routing
+
+✅ Validation
+
+Next:
+
+```text
+Error Handling
+```
+
+---
+
+## FastAPI Implementations
+
+✅ FastAPI Routing
+
+✅ FastAPI Validation
+
+Next:
+
+```text
+FastAPI Error Handling
+```
+
+---
+
+# Project Principles
 
 When adding content, prefer:
 
@@ -313,21 +470,21 @@ When adding content, prefer:
 Prefer teaching:
 
 ```text
-The problem
+The Problem
     ↓
-The capability
+The Capability
     ↓
-The implementation
+The Implementation
 ```
 
 rather than:
 
 ```text
-The framework
+The Framework
     ↓
-The syntax
+The Syntax
     ↓
-The tutorial
+The Tutorial
 ```
 
 Avoid:
@@ -344,9 +501,9 @@ Avoid:
 
 ---
 
-## Long-Term Vision
+# Long-Term Vision
 
-API Mastery Path aims to become a practical roadmap for API engineering.
+API Mastery Path aims to become a practical roadmap for API Engineering.
 
 The objective is not simply to learn a framework.
 
@@ -361,6 +518,7 @@ The ultimate goal is to help developers move from:
 to:
 
 ```text
-"I can design, build, maintain,
-and evolve production APIs."
+"I can design, build,
+maintain and evolve
+production APIs."
 ```
