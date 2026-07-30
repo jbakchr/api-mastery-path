@@ -35,28 +35,28 @@ nav:
       - OpenAPI: fundamentals/openapi.md
 
   - Capabilities:
-      - Routing: capabilities/routing.md
-      - Validation: capabilities/validation.md
-      - Error Handling: capabilities/error-handling.md
-      - Documentation: capabilities/documentation.md
-      - Authentication: capabilities/authentication.md
-      - Authorization: capabilities/authorization.md
-      - Filtering: capabilities/filtering.md
-      - Pagination: capabilities/pagination.md
-      - Versioning: capabilities/versioning.md
-      - Testing: capabilities/testing.md
+      - Routing: capabilities/routing/index.md
+      - Validation: capabilities/validation/index.md
+      - Error Handling: capabilities/error-handling/index.md
+      - Documentation: capabilities/documentation/index.md
+      - Authentication: capabilities/authentication/index.md
+      - Authorization: capabilities/authorization/index.md
+      - Filtering: capabilities/filtering/index.md
+      - Pagination: capabilities/pagination/index.md
+      - Versioning: capabilities/versioning/index.md
+      - Testing: capabilities/testing/index.md
 
-  - FastAPI Implementations:
-      - Routing: implementations/fastapi-routing.md
-      - Validation: implementations/fastapi-validation.md
-      - Error Handling: implementations/fastapi-error-handling.md
-      - Documentation: implementations/fastapi-documentation.md
-      - Authentication: implementations/fastapi-authentication.md
-      - Authorization: implementations/fastapi-authorization.md
-      - Filtering: implementations/fastapi-filtering.md
-      - Pagination: implementations/fastapi-pagination.md
-      - Versioning: implementations/fastapi-versioning.md
-      - Testing: implementations/fastapi-testing.md
+  - FastAPI Implementations: 
+      - Routing: implementations/fastapi/routing.md
+      - Validation: implementations/fastapi/validation.md
+      - Error Handling: implementations/fastapi/error-handling.md
+      - Documentation: implementations/fastapi/documentation.md
+      - Authentication: implementations/fastapi/authentication.md
+      - Authorization: implementations/fastapi/authorization.md
+      - Filtering: implementations/fastapi/filtering.md
+      - Pagination: implementations/fastapi/pagination.md
+      - Versioning: implementations/fastapi/versioning.md
+      - Testing: implementations/fastapi/testing.md
 
   - Projects:
       - Notes API: projects/notes-api.md
