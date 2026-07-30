@@ -34,19 +34,25 @@ This roadmap exists to guide future development and prioritize the most valuable
 
 ---
 
-## Capabilities
+### Capabilities
 
 ✅ Routing
-
 ✅ Validation
+✅ Error Handling
+✅ Documentation
+✅ Authentication
+✅ Authorization
 
 ---
 
-## FastAPI Implementations
+### FastAPI Implementations
 
 ✅ FastAPI Routing
-
 ✅ FastAPI Validation
+✅ FastAPI Error Handling
+✅ FastAPI Documentation
+✅ FastAPI Authentication
+✅ FastAPI Authorization
 
 ---
 
@@ -69,6 +75,31 @@ Implementation pages teach:
 ```text
 Framework Implementation Skills
 ```
+
+### Learning Model Validation
+
+The capability-first model has now been validated across multiple API Engineering domains:
+
+✅ Routing
+✅ Validation
+✅ Error Handling
+✅ Documentation
+✅ Authentication
+✅ Authorization
+
+The distinction between:
+
+Capability Pages
+    ↓
+API Engineering Thinking
+
+and
+
+Implementation Pages
+    ↓
+Framework Implementation Skills
+
+continues to serve as the primary content model for the project.
 
 ---
 
@@ -161,6 +192,19 @@ Goal:
 
 Build a strong foundation in API Engineering.
 
+Current Progress:
+
+✅ Routing
+✅ Validation
+✅ Error Handling
+✅ Documentation
+✅ Authentication
+✅ Authorization
+
+🎯 Next: Filtering
+
+Core capability-first learning model continues to validate successfully across all completed topics.
+
 Capabilities should be developed in the following order:
 
 ```text
@@ -205,7 +249,7 @@ Testing
 
 Status:
 
-⬜ Not Started
+✅ Complete
 
 ---
 
@@ -227,7 +271,7 @@ Status:
 
 Status:
 
-⬜ Not Started
+✅ Complete
 
 ---
 
@@ -248,7 +292,7 @@ Status:
 
 Status:
 
-⬜ Not Started
+✅ Complete
 
 ---
 
@@ -268,7 +312,7 @@ Status:
 
 Status:
 
-⬜ Not Started
+✅ Complete
 
 ---
 
@@ -797,31 +841,43 @@ production APIs."
 
 ---
 
-# Current Priority
+## Current Priority
 
-```text
 Routing
-    ↓
+↓
 Validation
-    ↓
+↓
 Error Handling
-```
+↓
+Documentation
+↓
+Authentication
+↓
+Authorization
+↓
+Filtering
 
 Next capability:
 
 ✅ Routing
-
 ✅ Validation
+✅ Error Handling
+✅ Documentation
+✅ Authentication
+✅ Authorization
 
-🎯 Error Handling
+🎯 Filtering
 
 Next implementation:
 
 ✅ FastAPI Routing
-
 ✅ FastAPI Validation
+✅ FastAPI Error Handling
+✅ FastAPI Documentation
+✅ FastAPI Authentication
+✅ FastAPI Authorization
 
-🎯 FastAPI Error Handling
+🎯 FastAPI Filtering
 
 Do not rush into:
 
