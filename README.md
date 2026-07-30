@@ -399,9 +399,9 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ---
 
-# Current Progress
+## Current Progress
 
-## Project Foundation
+### Project Foundation
 
 ✅ GitHub Pages structure established
 
@@ -419,33 +419,116 @@ The goal is to teach how API engineers implement solutions using frameworks.
 
 ✅ Exercise structure established
 
+✅ Capability-first learning model established
+
+✅ Framework implementation model established
+
 ---
 
-## Capabilities
+### Capabilities
 
 ✅ Routing
 
 ✅ Validation
 
-Next:
+✅ Error Handling
 
-```text
-Error Handling
-```
+✅ Documentation
+
+✅ Authentication
+
+✅ Authorization
+
+🎯 Next: Filtering
 
 ---
 
-## FastAPI Implementations
+### FastAPI Implementations
 
 ✅ FastAPI Routing
 
 ✅ FastAPI Validation
 
-Next:
+✅ FastAPI Error Handling
+
+✅ FastAPI Documentation
+
+✅ FastAPI Authentication
+
+✅ FastAPI Authorization
+
+🎯 Next: FastAPI Filtering
+
+---
+
+### Exercise Model
+
+✅ Discover exercises established
+
+✅ Apply exercises established
+
+✅ Compose exercises established
+
+✅ Automate exercises established
+
+✅ Capability exercise structure established
+
+✅ Implementation exercise structure established
+
+---
+
+### Learning Model Validation
+
+The capability-first learning approach has now been validated across multiple API engineering topics:
+
+✅ Routing
+
+✅ Validation
+
+✅ Error Handling
+
+✅ Documentation
+
+✅ Authentication
+
+✅ Authorization
+
+The distinction between:
 
 ```text
-FastAPI Error Handling
+Capability Pages
+        ↓
+API Engineering Thinking
+
+Implementation Pages
+        ↓
+Framework Implementation Skills
 ```
+
+continues to work well and remains the primary content model for the project.
+
+---
+
+### Current Focus
+
+The project is currently progressing through the core API Engineering capability sequence:
+
+```text
+✅ Routing
+✅ Validation
+✅ Error Handling
+✅ Documentation
+✅ Authentication
+✅ Authorization
+🎯 Filtering
+⬜ Pagination
+⬜ Versioning
+⬜ Testing
+```
+
+Each capability is completed together with a FastAPI implementation page before moving to the next capability.
+
+This ensures concepts are first understood from an API Engineering perspective and then implemented using a real framework.
 
 ---
 
