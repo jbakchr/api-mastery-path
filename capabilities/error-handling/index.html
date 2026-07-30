@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://jbakchr.github.io/api-mastery-path/capabilities/error-handling/">
       
       
+        <link rel="prev" href="../validation/">
+      
+      
+        <link rel="next" href="../documentation/">
       
       
         
@@ -473,8 +477,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -485,13 +491,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -512,7 +516,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -530,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../routing.md" class="md-nav__link">
+      <a href="../routing/" class="md-nav__link">
         
   
   
@@ -558,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validation.md" class="md-nav__link">
+      <a href="../validation/" class="md-nav__link">
         
   
   
@@ -583,10 +587,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../error-handling.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -602,6 +633,192 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maintainability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Experience
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#errors-are-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors Are Normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-consistency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Consistency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actionable-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actionable Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -614,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation.md" class="md-nav__link">
+      <a href="../documentation/" class="md-nav__link">
         
   
   
@@ -642,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication.md" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         
   
   
@@ -670,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authorization.md" class="md-nav__link">
+      <a href="../authorization/" class="md-nav__link">
         
   
   
@@ -698,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filtering.md" class="md-nav__link">
+      <a href="../filtering/" class="md-nav__link">
         
   
   
@@ -726,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pagination.md" class="md-nav__link">
+      <a href="../pagination/" class="md-nav__link">
         
   
   
@@ -754,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning.md" class="md-nav__link">
+      <a href="../versioning/" class="md-nav__link">
         
   
   
@@ -782,7 +999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing.md" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -871,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-routing.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/routing/" class="md-nav__link">
         
   
   
@@ -899,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-validation.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/validation/" class="md-nav__link">
         
   
   
@@ -927,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-error-handling.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/error-handling/" class="md-nav__link">
         
   
   
@@ -955,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-documentation.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/documentation/" class="md-nav__link">
         
   
   
@@ -983,7 +1200,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-authentication.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/authentication/" class="md-nav__link">
         
   
   
@@ -1011,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-authorization.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/authorization/" class="md-nav__link">
         
   
   
@@ -1039,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-filtering.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/filtering/" class="md-nav__link">
         
   
   
@@ -1067,7 +1284,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-pagination.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/pagination/" class="md-nav__link">
         
   
   
@@ -1095,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-versioning.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/versioning/" class="md-nav__link">
         
   
   
@@ -1123,7 +1340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-testing.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/testing/" class="md-nav__link">
         
   
   
