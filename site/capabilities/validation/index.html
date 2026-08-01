@@ -13,6 +13,10 @@
         <link rel="canonical" href="https://jbakchr.github.io/api-mastery-path/capabilities/validation/">
       
       
+        <link rel="prev" href="../routing/">
+      
+      
+        <link rel="next" href="../error-handling/">
       
       
         
@@ -473,8 +477,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -485,13 +491,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -512,7 +516,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -530,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../routing.md" class="md-nav__link">
+      <a href="../routing/" class="md-nav__link">
         
   
   
@@ -555,10 +559,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../validation.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -574,6 +605,474 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-validation-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Validation Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-validation-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Validation Rules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Validation Rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Range Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discover-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discover Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discover Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Apply Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compose-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compose Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compose Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hints_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#objective_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-criteria_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Success Criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hints_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solution_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-exercise-exists_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Exercise Exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -586,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../error-handling.md" class="md-nav__link">
+      <a href="../error-handling/" class="md-nav__link">
         
   
   
@@ -614,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation.md" class="md-nav__link">
+      <a href="../documentation/" class="md-nav__link">
         
   
   
@@ -642,7 +1141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication.md" class="md-nav__link">
+      <a href="../authentication/" class="md-nav__link">
         
   
   
@@ -670,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authorization.md" class="md-nav__link">
+      <a href="../authorization/" class="md-nav__link">
         
   
   
@@ -698,7 +1197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../filtering.md" class="md-nav__link">
+      <a href="../filtering/" class="md-nav__link">
         
   
   
@@ -726,7 +1225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pagination.md" class="md-nav__link">
+      <a href="../pagination/" class="md-nav__link">
         
   
   
@@ -754,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning.md" class="md-nav__link">
+      <a href="../versioning/" class="md-nav__link">
         
   
   
@@ -782,7 +1281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../testing.md" class="md-nav__link">
+      <a href="../testing/" class="md-nav__link">
         
   
   
@@ -871,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-routing.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/routing/" class="md-nav__link">
         
   
   
@@ -899,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-validation.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/validation/" class="md-nav__link">
         
   
   
@@ -927,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-error-handling.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/error-handling/" class="md-nav__link">
         
   
   
@@ -955,7 +1454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-documentation.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/documentation/" class="md-nav__link">
         
   
   
@@ -983,7 +1482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-authentication.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/authentication/" class="md-nav__link">
         
   
   
@@ -1011,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-authorization.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/authorization/" class="md-nav__link">
         
   
   
@@ -1039,7 +1538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-filtering.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/filtering/" class="md-nav__link">
         
   
   
@@ -1067,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-pagination.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/pagination/" class="md-nav__link">
         
   
   
@@ -1095,7 +1594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-versioning.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/versioning/" class="md-nav__link">
         
   
   
@@ -1123,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../implementations/fastapi-testing.md" class="md-nav__link">
+      <a href="../../implementations/fastapi/testing/" class="md-nav__link">
         
   
   
